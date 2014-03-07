@@ -1,0 +1,15 @@
+{
+    "name"             : "touchpayments/php-sdk",
+    "description"      : "A simple PHP implementation of Touch Payments' API",
+    "minimum-stability": "stable",
+    "authors"          : [
+        {
+            "name" : "Mario Herrmann",
+            "email": "mario@touchpayments.com.au"
+        },
+        {
+            "name" : "Victor Garcia",
+            "email": "victor@touchpayments.com.au"
+        }
+    ]
+}
