@@ -13,6 +13,6 @@
         }
     ],
     "autoload"         : {
-        "psr-0": { "Touch" : "Touch/" }
+        "psr-0": { "Touch" : "/" }
     }
 }
