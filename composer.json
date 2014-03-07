@@ -11,5 +11,8 @@
             "name" : "Victor Garcia",
             "email": "victor@touchpayments.com.au"
         }
-    ]
+    ],
+    "autoload"         : {
+        "psr-0": { "Touch" : "Touch/" }
+    }
 }
