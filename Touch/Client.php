@@ -82,9 +82,6 @@ class Touch_Client {
         return $this->_callMethod('setOrderItemStatusCancelled', $data);
     }
     
-    
-    
-    
     /**
      * set order item to return initiated
      * 
@@ -136,6 +133,11 @@ class Touch_Client {
         return $this->_callMethod('setOrderStatusShipped', $data);
     }
 
+    /**
+     * 
+     * @param Touch_Order $order
+     * @return string
+     */
     public function generateOrder(Touch_Order $order)
     {
         
@@ -143,24 +145,39 @@ class Touch_Client {
         return $this->_callMethod('generateOrder', $data);
     }
 
-    
+    /**
+     * 
+     * @param string $refNr
+     * @return string
+     */
     public function getOrder($refNr)
     {
         $data = array($this->_apiKey, $refNr);
         return $this->_callMethod('getOrder', $data);
     }
-    
+    /**
+     * 
+     * @param string $token
+     * @return string
+     */
     public function getOrderStatusFromToken($token)
     {
         $data = array($this->_apiKey, $token);
         return $this->_callMethod('getOrderStatusFromToken', $data);
     }
-
+    /**
+     * 
+     * @param string $token
+     * @param string $refNumber
+     * @param float $grandTotal
+     * @return mixed
+     */
     public function approveOrderByToken($token, $refNumber, $grandTotal)
     {
         $data = array($this->_apiKey, $token, $refNumber, $grandTotal);
         return $this->_callMethod('approveOrderByToken', $data);
     }
+    
     /**
      * approving order via SMS code
      * 
@@ -176,12 +193,23 @@ class Touch_Client {
         return $this->_callMethod('approveOrderBySmsCode', $data);
     }
 
+    /**
+     * 
+     * @param float $grandTotal
+     * @return string
+     */
     public function getFee($grandTotal)
     {
         $data = array($this->_apiKey, $grandTotal);
         return $this->_callMethod('getFeeAmount', $data);
     }
 
+    /**
+     * 
+     * @param string $method
+     * @param mixed $data
+     * @return string
+     */
     private function _callMethod($method, $data)
     {
         $params = array(
