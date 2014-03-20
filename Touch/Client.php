@@ -82,6 +82,49 @@ class Touch_Client {
         return $this->_callMethod('setOrderItemStatusCancelled', $data);
     }
     
+    
+    
+    
+    /**
+     * set order item to return initiated
+     * 
+     * @param string $refNr
+     * @param mixed $itemIds
+     * @return mixed
+     */
+    public function setOrderItemStatusReturnPending($refNr, $itemIds)
+    {
+        $data = array($this->_apiKey, $refNr ,$itemIds);
+        return $this->_callMethod('setOrderItemStatusReturnPending', $data);
+    }
+    
+    /**
+     * set order item to return denied
+     * 
+     * @param string $refNr
+     * @param mixed $itemIds
+     * @return mixed
+     */
+    public function setOrderItemStatusReturneDenied($refNr, $itemIds)
+    {
+        $data = array($this->_apiKey, $refNr ,$itemIds);
+        return $this->_callMethod('setOrderItemStatusReturneDenied', $data);
+    }
+    
+    
+    /**
+     * set order item to return initiated
+     * 
+     * @param string $refNr
+     * @param mixed $itemIds
+     * @return mixed
+     */
+    public function setOrderItemStatusReturned($refNr, $itemIds)
+    {
+        $data = array($this->_apiKey, $refNr ,$itemIds);
+        return $this->_callMethod('setOrderItemStatusReturned', $data);
+    }
+    
     /**
      * 
      * @param string $refNr
