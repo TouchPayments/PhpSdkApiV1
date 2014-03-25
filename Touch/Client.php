@@ -155,6 +155,17 @@ class Touch_Client {
         $data = array($this->_apiKey, $refNr);
         return $this->_callMethod('getOrder', $data);
     }
+    
+    /**
+     * retrieve extensions
+     * if applicable
+     * @return string
+     */
+    public function getExtensions()
+    {
+        $data = array($this->_apiKey);
+        return $this->_callMethod('getExtensions', $data);
+    }
     /**
      * 
      * @param string $token
