@@ -46,6 +46,16 @@ class Touch_Client {
     }
 
     /**
+     * 
+     * @return mixed
+     */
+    public function getInitialPaymentDelayDuration()
+    {
+        $data = array($this->_apiKey);
+        return $this->_callMethod('getInitialPaymentDelayDuration', $data);
+    }
+    
+    /**
      * Check if Api is available at the time
      * 
      * @return mixed
