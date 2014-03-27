@@ -45,6 +45,11 @@ class Touch_Order extends Touch_Object {
      * @var Int
      */
     public $extendingDays;
+    
+    /**
+     * @var string
+     */
+    public $clientSessionId;
 
     public function toArray()
     {
