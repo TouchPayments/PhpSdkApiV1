@@ -51,6 +51,10 @@ class Touch_Order extends Touch_Object {
      */
     public $clientSessionId;
 
+    /**
+     * @return array()
+     * @throws Exception
+     */
     public function toArray()
     {
         $return = array();
