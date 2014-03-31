@@ -186,6 +186,17 @@ class Touch_Client {
         $data = array($this->_apiKey, $token);
         return $this->_callMethod('getOrderStatusFromToken', $data);
     }
+    
+     /**
+     * 
+     * @param string $token
+     * @return string
+     */
+    public function getOrderStatusFromToken($token)
+    {
+        $data = array($this->_apiKey, $token);
+        return $this->_callMethod('getOrderStatusFromToken', $data);
+    }
     /**
      * 
      * @param string $token
@@ -225,6 +236,17 @@ class Touch_Client {
         return $this->_callMethod('getFeeAmount', $data);
     }
 
+    
+    /**
+     * @param String $idSession
+     * @return type
+     */
+    public function getJavascriptSources($idSession)
+    {
+        $response = $this->_callMethod('getJavascriptSources',array($this->_apiKey, $idSession));
+        return $response;
+    }
+    
     /**
      * 
      * @param string $method
