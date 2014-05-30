@@ -40,7 +40,21 @@ class Touch_Order extends Touch_Object {
      * @var Touch_Customer
      */
     public $customer;
+    
+    /**
+     * @var Int
+     */
+    public $extendingDays;
+    
+    /**
+     * @var string
+     */
+    public $clientSessionId;
 
+    /**
+     * @return array()
+     * @throws Exception
+     */
     public function toArray()
     {
         $return = array();

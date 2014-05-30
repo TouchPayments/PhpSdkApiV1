@@ -46,6 +46,16 @@ class Touch_Client {
     }
 
     /**
+     *
+     * @return mixed
+     */
+    public function getInitialPaymentDelayDuration()
+    {
+        $data = array($this->_apiKey);
+        return $this->_callMethod('getInitialPaymentDelayDuration', $data);
+    }
+
+    /**
      * Check if Api is available at the time
      *
      * @return mixed
@@ -83,6 +93,46 @@ class Touch_Client {
     }
 
     /**
+     * set order item to return initiated
+     *
+     * @param string $refNr
+     * @param mixed $itemIds
+     * @return mixed
+     */
+    public function setOrderItemStatusReturnPending($refNr, $itemIds)
+    {
+        $data = array($this->_apiKey, $refNr ,$itemIds);
+        return $this->_callMethod('setOrderItemStatusReturnPending', $data);
+    }
+
+    /**
+     * set order item to return denied
+     *
+     * @param string $refNr
+     * @param mixed $itemIds
+     * @return mixed
+     */
+    public function setOrderItemStatusReturneDenied($refNr, $itemIds)
+    {
+        $data = array($this->_apiKey, $refNr ,$itemIds);
+        return $this->_callMethod('setOrderItemStatusReturneDenied', $data);
+    }
+
+
+    /**
+     * set order item to return initiated
+     *
+     * @param string $refNr
+     * @param mixed $itemIds
+     * @return mixed
+     */
+    public function setOrderItemStatusReturned($refNr, $itemIds)
+    {
+        $data = array($this->_apiKey, $refNr ,$itemIds);
+        return $this->_callMethod('setOrderItemStatusReturned', $data);
+    }
+
+    /**
      *
      * @param string $refNr
      * @param mixed $articleLines
@@ -93,36 +143,73 @@ class Touch_Client {
         return $this->_callMethod('setOrderStatusShipped', $data);
     }
 
+    /**
+     *
+     * @param Touch_Order $order
+     * @return string
+     */
     public function generateOrder(Touch_Order $order)
     {
         $data = array($this->_apiKey, $order->toArray());
         return $this->_callMethod('generateOrder', $data);
     }
 
+    /**
+     *
+     * @param Touch_Order $order
+     * @return string
+     */
     public function generateExpressOrder(Touch_Order $order)
     {
         $data = array($this->_apiKey, $order->toArray());
         return $this->_callMethod('generateExpressOrder', $data);
     }
 
-
+    /**
+     *
+     * @param string $refNr
+     * @return string
+     */
     public function getOrder($refNr)
     {
         $data = array($this->_apiKey, $refNr);
         return $this->_callMethod('getOrder', $data);
     }
 
+    /**
+     * retrieve extensions
+     * if applicable
+     * @return string
+     */
+    public function getExtensions()
+    {
+        $data = array($this->_apiKey);
+        return $this->_callMethod('getExtensions', $data);
+    }
+    /**
+     *
+     * @param string $token
+     * @return string
+     */
     public function getOrderStatusFromToken($token)
     {
         $data = array($this->_apiKey, $token);
         return $this->_callMethod('getOrderStatusFromToken', $data);
     }
 
+    /**
+     *
+     * @param string $token
+     * @param string $refNumber
+     * @param float $grandTotal
+     * @return mixed
+     */
     public function approveOrderByToken($token, $refNumber, $grandTotal)
     {
         $data = array($this->_apiKey, $token, $refNumber, $grandTotal);
         return $this->_callMethod('approveOrderByToken', $data);
     }
+
     /**
      * approving order via SMS code
      *
@@ -138,12 +225,34 @@ class Touch_Client {
         return $this->_callMethod('approveOrderBySmsCode', $data);
     }
 
+    /**
+     *
+     * @param float $grandTotal
+     * @return string
+     */
     public function getFee($grandTotal)
     {
         $data = array($this->_apiKey, $grandTotal);
         return $this->_callMethod('getFeeAmount', $data);
     }
 
+
+    /**
+     * @param String $idSession
+     * @return type
+     */
+    public function getJavascriptSources($idSession)
+    {
+        $response = $this->_callMethod('getJavascriptSources',array($this->_apiKey, $idSession));
+        return $response;
+    }
+
+    /**
+     *
+     * @param string $method
+     * @param mixed $data
+     * @return string
+     */
     private function _callMethod($method, $data)
     {
         $params = array(
