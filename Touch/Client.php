@@ -1,7 +1,7 @@
 <?php
 /**
  * Touch Payments Rest Client
- * 
+ *
  * @copyright 2013 Check'n Pay Finance Pty Limited
  */
 class Touch_Client {
@@ -24,7 +24,7 @@ class Touch_Client {
     {
         return str_ireplace('/api', '/check/index/token/', $this->_url). $token;
     }
-    
+
     /**
      * get a maximum checkout Value
      * @return float
@@ -47,7 +47,7 @@ class Touch_Client {
 
     /**
      * Check if Api is available at the time
-     * 
+     *
      * @return mixed
      */
     public function isApiActive()
@@ -57,7 +57,7 @@ class Touch_Client {
     }
     /**
      * set whole order to cancelled
-     * 
+     *
      * @param string $refNr
      * @param string $reason
      * @return type
@@ -70,7 +70,7 @@ class Touch_Client {
 
     /**
      * Set order item to cancelled
-     * 
+     *
      * @param string $refNr
      * @param mixed $itemIds
      * @param string $reason
@@ -81,9 +81,9 @@ class Touch_Client {
         $data = array($this->_apiKey, $refNr ,$itemIds , $reason);
         return $this->_callMethod('setOrderItemStatusCancelled', $data);
     }
-    
+
     /**
-     * 
+     *
      * @param string $refNr
      * @param mixed $articleLines
      */
@@ -95,18 +95,23 @@ class Touch_Client {
 
     public function generateOrder(Touch_Order $order)
     {
-        
         $data = array($this->_apiKey, $order->toArray());
         return $this->_callMethod('generateOrder', $data);
     }
 
-    
+    public function generateExpressOrder(Touch_Order $order)
+    {
+        $data = array($this->_apiKey, $order->toArray());
+        return $this->_callMethod('generateExpressOrder', $data);
+    }
+
+
     public function getOrder($refNr)
     {
         $data = array($this->_apiKey, $refNr);
         return $this->_callMethod('getOrder', $data);
     }
-    
+
     public function getOrderStatusFromToken($token)
     {
         $data = array($this->_apiKey, $token);
@@ -120,7 +125,7 @@ class Touch_Client {
     }
     /**
      * approving order via SMS code
-     * 
+     *
      * @param string $token
      * @param string $refNumber
      * @param string $grandTotal
@@ -148,8 +153,8 @@ class Touch_Client {
             'id' => uniqid()
         );
 
-      
-        
+
+
         $context = stream_context_create(array(
             'http' => array(
                 'method' => 'POST',
@@ -157,9 +162,9 @@ class Touch_Client {
                 'content' => json_encode($params)
             )
         ));
-        
+
         $jsonResponse = file_get_contents($this->_url, FALSE, $context);
-        
+
         return json_decode($jsonResponse);
     }
 
