@@ -19,6 +19,7 @@ class Touch_Client {
 
     /**
      * @param string $token
+     * @return string
      */
     public function getRedirectUrl($token)
     {
@@ -65,14 +66,15 @@ class Touch_Client {
         $data = array($this->_apiKey);
         return $this->_callMethod('apiActive', $data);
     }
+
     /**
      * set whole order to cancelled
      *
      * @param string $refNr
      * @param string $reason
-     * @return type
+     * @return string
      */
-    public function setOrderStatusCancelled($refNr,$reason)
+    public function setOrderStatusCancelled($refNr, $reason)
     {
         $data = array($this->_apiKey, $refNr , $reason);
         return $this->_callMethod('setOrderStatusCancelled', $data);
@@ -135,7 +137,8 @@ class Touch_Client {
     /**
      *
      * @param string $refNr
-     * @param mixed $articleLines
+     * @internal mixed $articleLines
+     * @return string
      */
     public function setOrderStatusShipped($refNr)
     {
@@ -238,8 +241,8 @@ class Touch_Client {
 
 
     /**
-     * @param String $idSession
-     * @return type
+     * @param $idSession
+     * @return string
      */
     public function getJavascriptSources($idSession)
     {

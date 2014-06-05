@@ -45,7 +45,13 @@ class Touch_Order extends Touch_Object {
      * @var Int
      */
     public $extendingDays;
-    
+
+    /**
+     * @var Touch_ShippingMethod[]
+     * If not set, Touch will ask to the shop to update it later, by sending the shipping address
+     */
+    public $shippingMethods;
+
     /**
      * @var string
      */
