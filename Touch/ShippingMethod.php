@@ -16,7 +16,7 @@
 class Touch_ShippingMethod extends Touch_Object {
     /**
      * Name of this shipping method
-     * Keep It Short
+     * Keep It Short BUT UNIQUE as it will be returned by Touch Payment to specify the customer's choice
      * @var string
      */
     public $label;
@@ -31,6 +31,7 @@ class Touch_ShippingMethod extends Touch_Object {
 
     /**
      * This contains additional details, as long as you want to make it
+     * Not used at the moment
      * @var string
      */
     public $additionalDetails;
@@ -46,7 +47,7 @@ class Touch_ShippingMethod extends Touch_Object {
      *      [additionalDetails] => "For a cart superior or equals to 10 AUD"
      *      [isEligible] => false
      *  }
-     * BUT this should NOT be used to send ShippingMethod irrelevent to the customer(ex: how much it could cost him to ship his order to Reykjavik if he does not live here)
+     * BUT this should NOT be used to send ShippingMethod irrelevant to the customer(ex: how much it could cost him to ship his order to Reykjavik if he does not live here)
      */
     public $isEligible;
 
