@@ -7,32 +7,32 @@
 class Touch_Customer extends Touch_Object {
 
     /**
-     * @var String
+     * @var string
      */
     public $email;
 
     /**
-     * @var String
+     * @var string
      */
     public $firstName;
 
     /**
-     * @var String
+     * @var string
      */
     public $lastName;
 
     /**
-     * @var String
+     * @var string
      */
     public $gender;
 
     /**
-     * @var String
+     * @var string
      */
     public $telephoneMobile;
 
     /**
-     * @var String
+     * @var string
      */
     public $dob;
 
