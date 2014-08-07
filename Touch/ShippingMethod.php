@@ -16,30 +16,26 @@
 class Touch_ShippingMethod extends Touch_Object
 {
     /**
-     * Name of this shipping method
+     * @var string mame of this shipping method
      * Keep It Short BUT UNIQUE as it will be returned by Touch Payment to specify the customer's choice
-     * @var string
      */
     public $label;
 
 
     /**
-     * Longueur description of this shipping methods. This will be displayed side by side with the label
+     * @var string longueur description of this shipping methods. This will be displayed side by side with the label
      * It should contains short and important information, such as expecting days or price by KG
-     * @var string
      */
     public $description;
 
     /**
-     * This contains additional details, as long as you want to make it
+     * @var string this contains additional details, as long as you want to make it
      * Not used at the moment
-     * @var string
      */
     public $additionalDetails;
 
     /**
-     * @var boolean
-     * Enable a method for a certain order
+     * @var boolean enable a method for a certain order
      * This field should be used to send additional methods which could be available to the user _if_
      * For example, for an order of 9 AUD
      *  ShippingMethod {

@@ -9,58 +9,57 @@ class Touch_Order extends Touch_Object
 {
 
     /**
-     * @var Float
+     * @var float grand total
      */
     public $grandTotal;
 
     /**
-     * @var Float
+     * @var float shipping costs
      */
     public $shippingCosts;
 
     /**
-     * @var float
+     * @var float GST
      */
     public $gst;
 
     /**
-     * @var Touch_Item[]
+     * @var Touch_Item[] array of items
      */
     public $items;
 
     /**
-     * @var Touch_Address
+     * @var Touch_Address address for shipping
      */
     public $addressShipping;
 
     /**
-     * @var Touch_Address
+     * @var Touch_Address address for billing
      */
     public $addressBilling;
 
     /**
-     * @var Touch_Customer
+     * @var Touch_Customer customer
      */
     public $customer;
 
     /**
-     * @var Int
+     * @var int number of extending days
      */
     public $extendingDays;
 
     /**
-     * @var Touch_ShippingMethod[]
-     * If not set, Touch will ask to the shop to update it later, by sending the shipping address
+     * @var Touch_ShippingMethod shipping method to use
      */
     public $shippingMethods;
 
     /**
-     * @var string
+     * @var string returned by sesion_id()
      */
     public $clientSessionId;
 
     /**
-     * @return array()
+     * @return array
      * @throws Exception
      */
     public function toArray()

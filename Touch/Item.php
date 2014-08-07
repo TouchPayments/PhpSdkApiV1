@@ -29,27 +29,28 @@ class Touch_Item extends Touch_Object
     const STATUS_UNABLETOFULLFILL = 'unableToFullFill';
 
     /**
-     * @var string
+     * @var string SKU
+     * Stock keeping unit. A unique id for this item
      */
     public $sku;
 
     /**
-     * @var float
+     * @var float unit price of the item
      */
     public $price;
 
     /**
-     * @var string
+     * @var string short description of the item
      */
     public $description;
 
     /**
-     * @var int
+     * @var int quantity of this items in the order
      */
     public $quantity;
 
     /**
-     * @var string
+     * @var string url of the picture of the item
      */
     public $image;
 
