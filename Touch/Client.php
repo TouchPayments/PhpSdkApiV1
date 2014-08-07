@@ -258,6 +258,12 @@ class Touch_Client {
      */
     private function _callMethod($method, $data)
     {
+        // Init cUrl
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, "https://test.touchpayments.com.au/api/v2");
+        curl_setopt($ch, CURLOPT_POST, true);
+
         $params = array(
             'jsonrpc’ => ’2.0',
             'method' => $method,
@@ -265,19 +271,10 @@ class Touch_Client {
             'id' => uniqid()
         );
 
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
 
-
-        $context = stream_context_create(array(
-            'http' => array(
-                'method' => 'POST',
-                'header' => 'Content-Type: application/json\r\n',
-                'content' => json_encode($params)
-            )
-        ));
-
-        $jsonResponse = file_get_contents($this->_url, FALSE, $context);
-
-        return json_decode($jsonResponse);
+        $response = json_decode(curl_exec($ch));
+        return $response;
     }
 
 }
