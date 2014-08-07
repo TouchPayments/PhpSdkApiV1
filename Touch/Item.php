@@ -29,17 +29,17 @@ class Touch_Item extends Touch_Object
     const STATUS_UNABLETOFULLFILL = 'unableToFullFill';
 
     /**
-     * @var String
+     * @var string
      */
     public $sku;
 
     /**
-     * @var Float
+     * @var float
      */
     public $price;
 
     /**
-     * @var String
+     * @var string
      */
     public $description;
 
