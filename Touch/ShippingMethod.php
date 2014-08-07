@@ -13,7 +13,8 @@
  * You should set it in Touch_Order when sending the order to the touch API if and _ONLY IF_ the shipping methods are
  * linked to the order and would not change according to the address (note that at the moment, Touch Payment is only offering its service in Australia)
  */
-class Touch_ShippingMethod extends Touch_Object {
+class Touch_ShippingMethod extends Touch_Object
+{
     /**
      * Name of this shipping method
      * Keep It Short BUT UNIQUE as it will be returned by Touch Payment to specify the customer's choice

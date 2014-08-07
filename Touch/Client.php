@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Touch Payments Rest Client
  *
  * @copyright 2013 Check'n Pay Finance Pty Limited
  */
-class Touch_Client {
+class Touch_Client
+{
 
     private $_apiKey;
     private $_url;
@@ -23,7 +25,7 @@ class Touch_Client {
      */
     public function getRedirectUrl($token)
     {
-        return str_ireplace('/api', '/check/index/token/', $this->_url). $token;
+        return str_ireplace('/api', '/check/index/token/', $this->_url) . $token;
     }
 
     /**
@@ -76,7 +78,7 @@ class Touch_Client {
      */
     public function setOrderStatusCancelled($refNr, $reason)
     {
-        $data = array($this->_apiKey, $refNr , $reason);
+        $data = array($this->_apiKey, $refNr, $reason);
         return $this->_callMethod('setOrderStatusCancelled', $data);
     }
 
@@ -90,7 +92,7 @@ class Touch_Client {
      */
     public function setOrderItemStatusCancelled($refNr, $itemIds, $reason)
     {
-        $data = array($this->_apiKey, $refNr ,$itemIds , $reason);
+        $data = array($this->_apiKey, $refNr, $itemIds, $reason);
         return $this->_callMethod('setOrderItemStatusCancelled', $data);
     }
 
@@ -103,7 +105,7 @@ class Touch_Client {
      */
     public function setOrderItemStatusReturnPending($refNr, $itemIds)
     {
-        $data = array($this->_apiKey, $refNr ,$itemIds);
+        $data = array($this->_apiKey, $refNr, $itemIds);
         return $this->_callMethod('setOrderItemStatusReturnPending', $data);
     }
 
@@ -116,7 +118,7 @@ class Touch_Client {
      */
     public function setOrderItemStatusReturneDenied($refNr, $itemIds)
     {
-        $data = array($this->_apiKey, $refNr ,$itemIds);
+        $data = array($this->_apiKey, $refNr, $itemIds);
         return $this->_callMethod('setOrderItemStatusReturneDenied', $data);
     }
 
@@ -130,7 +132,7 @@ class Touch_Client {
      */
     public function setOrderItemStatusReturned($refNr, $itemIds)
     {
-        $data = array($this->_apiKey, $refNr ,$itemIds);
+        $data = array($this->_apiKey, $refNr, $itemIds);
         return $this->_callMethod('setOrderItemStatusReturned', $data);
     }
 
@@ -189,6 +191,7 @@ class Touch_Client {
         $data = array($this->_apiKey);
         return $this->_callMethod('getExtensions', $data);
     }
+
     /**
      *
      * @param string $token
@@ -246,7 +249,7 @@ class Touch_Client {
      */
     public function getJavascriptSources($idSession)
     {
-        $response = $this->_callMethod('getJavascriptSources',array($this->_apiKey, $idSession));
+        $response = $this->_callMethod('getJavascriptSources', array($this->_apiKey, $idSession));
         return $response;
     }
 

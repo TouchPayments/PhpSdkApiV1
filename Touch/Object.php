@@ -1,24 +1,33 @@
 <?php
+
 /**
  * Touch Payments Base Class
- * 
+ *
  * @copyright 2013 Check'n Pay Finance Pty Limited
  */
-abstract class Touch_Object implements ArrayAccess {
+abstract class Touch_Object implements ArrayAccess
+{
 
-    public function offsetSet($offset, $value) {
-        if(isset($this->$offset)) {
+    public function offsetSet($offset, $value)
+    {
+        if (isset($this->$offset)) {
             $this->$offset = $value;
         }
     }
-    public function offsetExists($offset) {
-        
+
+    public function offsetExists($offset)
+    {
+
         return isset($this->$offset);
     }
-    public function offsetUnset($offset) {
+
+    public function offsetUnset($offset)
+    {
         unset($this->$offset);
     }
-    public function offsetGet($offset) {
+
+    public function offsetGet($offset)
+    {
         return isset($this->$offset) ? $this->$offset : null;
     }
 

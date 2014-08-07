@@ -1,12 +1,14 @@
 <?php
+
 /**
- * Touch Payments 
- * 
+ * Touch Payments
+ *
  * Error codes for error responses
- * 
+ *
  * @copyright 2013 Check'n Pay Finance Pty Limited
  */
-class Touch_ErrorCodes {
+class Touch_ErrorCodes
+{
 
     const ERR_VALIDATION = -32001;
     const ERR_ORDER_NOT_FOUND = -32002;
@@ -19,8 +21,8 @@ class Touch_ErrorCodes {
     const ERR_INVALID_POSTCODE_SUBURB_COMBINATION = -32009;
     const ERR_DEVICE_SCORE_TOO_LOW = -32010;
     const ERR_INTERNAL = -32000;
-   
-    
+
+
     public static $forHumans = array(
         self::ERR_VALIDATION => 'Validation Error',
         self::ERR_ORDER_NOT_FOUND => 'Order could not be found',
@@ -34,5 +36,5 @@ class Touch_ErrorCodes {
         self::ERR_DEVICE_SCORE_TOO_LOW => 'Given device is not trustworthy.',
         self::ERR_INTERNAL => 'Intenral error'
     );
-    
+
 }
