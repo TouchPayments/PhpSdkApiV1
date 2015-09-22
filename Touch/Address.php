@@ -57,8 +57,11 @@ class Touch_Address extends Touch_Object
 
     /**
      * @var string country
-     * Default is Australia at the moment
      */
-    public $country = self::COUNTRY_AU;
+    public $country;
 
+    public function __construct($country = self::COUNTRY_AU)
+    {
+        $this->country = $country;
+    }
 }

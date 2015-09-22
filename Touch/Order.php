@@ -1,65 +1,79 @@
 <?php
-
 /**
  * Touch Payments Order Object Class
  *
  * @copyright 2013 Check'n Pay Finance Pty Limited
  */
-class Touch_Order extends Touch_Object
-{
+class Touch_Order extends Touch_Object {
 
     /**
-     * @var float grand total
+     * @var String
+     */
+    public $merchantRefNumber;
+
+    /**
+     * @var Float
      */
     public $grandTotal;
 
     /**
-     * @var float shipping costs
+     * @var Float
      */
     public $shippingCosts;
 
     /**
-     * @var float GST
+     * @var Float
+     */
+    public $discount;
+
+    /**
+     * @var Float
+     */
+    public $giftCardAmount;
+
+    /**
+     * @var float
      */
     public $gst;
 
     /**
-     * @var Touch_Item[] array of items
+     * @var Touch_Item[]
      */
     public $items;
 
     /**
-     * @var Touch_Address address for shipping
+     * @var Touch_Address
      */
     public $addressShipping;
 
     /**
-     * @var Touch_Address address for billing
+     * @var Touch_Address
      */
     public $addressBilling;
 
     /**
-     * @var Touch_Customer customer
+     * @var Touch_Customer
      */
     public $customer;
 
     /**
-     * @var int number of extending days
+     * @var Int
      */
     public $extendingDays;
 
     /**
-     * @var Touch_ShippingMethod shipping method to use
+     * @var Touch_ShippingMethod[]
+     * If not set, Touch will ask to the shop to update it later, by sending the shipping address
      */
     public $shippingMethods;
 
     /**
-     * @var string returned by sesion_id()
+     * @var string
      */
     public $clientSessionId;
 
     /**
-     * @return array
+     * @return array()
      * @throws Exception
      */
     public function toArray()

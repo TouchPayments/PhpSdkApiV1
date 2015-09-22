@@ -166,6 +166,24 @@ class Touch_Client
      */
     public function generateExpressOrder(Touch_Order $order)
     {
+        // Unset potential empty fields before submitting the order
+        if (empty($order->addressBilling)) {
+            unset($order->addressBilling);
+        }
+
+        if (empty($order->addressShipping)) {
+            unset($order->addressShipping);
+        }
+
+        if (empty($order->customer)) {
+            unset($order->customer);
+        }
+
+        if (empty($order->shippingMethods)) {
+            unset($order->shippingMethods);
+        }
+
+        // Perform the call itself
         $data = array($this->_apiKey, $order->toArray());
         return $this->_callMethod('generateExpressOrder', $data);
     }

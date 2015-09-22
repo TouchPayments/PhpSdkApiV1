@@ -1,12 +1,10 @@
 <?php
-
 /**
  * Touch Payments Item Class
  *
  * @copyright 2013 Check'n Pay Finance Pty Limited
  */
-class Touch_Item extends Touch_Object
-{
+class Touch_Item extends Touch_Object {
 
 
     const STATUS_ACTIVE = 'active';
@@ -18,6 +16,7 @@ class Touch_Item extends Touch_Object
     const STATUS_NEW = 'new';
     const STATUS_OVERDUE = 'overdue';
     const STATUS_PAID = 'paid';
+    const STATUS_PAID_UPFRONT = 'paidUpfront';
     const STATUS_PAYMENTDELAYED = 'paymentDelayed';
     const STATUS_PAYMENTREFUSED = 'paymentRefused';
     const STATUS_PENDING = 'pending';
@@ -28,31 +27,60 @@ class Touch_Item extends Touch_Object
     const STATUS_SHIPPED = 'shipped';
     const STATUS_UNABLETOFULLFILL = 'unableToFullFill';
 
+    public static $shippableStatus = array(
+        self::STATUS_APPROVED,
+        self::STATUS_PAID_UPFRONT,
+        self::STATUS_CANCELLED
+    );
+
     /**
-     * @var string SKU
-     * Stock keeping unit. A unique id for this item
+     * @var String
      */
     public $sku;
 
     /**
-     * @var float unit price of the item
+     * @var Float
      */
     public $price;
 
     /**
-     * @var string short description of the item
+     * @var Float
+     */
+    public $pricePaid;
+
+    /**
+     * @var Float
+     */
+    public $giftWrapPrice;
+
+    /**
+     * @var boolean
+     */
+    public $onSale;
+
+    /**
+     * @var String
      */
     public $description;
 
     /**
-     * @var int quantity of this items in the order
+     * @var int
      */
     public $quantity;
 
     /**
-     * @var string url of the picture of the item
+     * @var string
      */
     public $image;
 
+    /**
+     * @var string
+     */
+    public $customLabel;
+
+    /**
+     * @var string
+     */
+    public $customValue;
 
 }
